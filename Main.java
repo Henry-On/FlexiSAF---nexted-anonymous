@@ -6,6 +6,10 @@ interface BuildingFeatures {
     void displayBuildingProperties();
 }
 
+interface WelcomeGreeting {
+    void greet();
+}
+
 class Building implements BuildingFeatures {
 
     String color;
@@ -46,6 +50,7 @@ class Building implements BuildingFeatures {
     }
 
     public void displayBuildingProperties() {
+
         System.out.println("The buiding properties:");
         System.out.println("Color: " + this.color);
         System.out.println("Area: " + this.area);
@@ -58,6 +63,14 @@ class Building implements BuildingFeatures {
 public class Main {
     public static void main(String[] args) {
         
+        WelcomeGreeting greeting = new WelcomeGreeting() {
+            @Override
+            public void greet() {
+                System.out.println("Hi, Welcome");
+            }
+        };
+
+        greeting.greet();
         //create an instance of building
         Building house = new Building();
 
